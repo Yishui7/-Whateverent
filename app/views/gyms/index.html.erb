@@ -1,8 +1,41 @@
-<h1>index</h1>
-<p> <%= link_to "Create New Gym", new_gym_path %> </p>
+<%# Index Nav %>
+<div class="container-nav">
+  <div class="title-nav">
+    <h2> <%= link_to "De-fit.", root_path %></h2>
+  </div>
+  <div class="nav-options">
+    <p>account</p>
+    <p><%= link_to "log out", destroy_user_session_path %></p>
+  </div>
+</div>
 
-<ul>
-  <% @gyms.each do |gym| %>
-  <li> <%= link_to gym.name, gym_path(gym) %> - <%= gym.category %> - $<%= gym.price_per_hour %> </li>
-  <% end %>
-</ul>
+
+
+<div class="container">
+  <div class="row card-container">
+    <% @gyms.each do |gym| %>
+      <div class="col-4 col-lg-4 card-layout">
+        <%= link_to gym_path(gym) do %>
+          <div class="card-contents">
+            <img src="https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="">
+            <div class="card-description">
+              <div class="card-details">
+                <p><%= gym.name %></p>
+                <p class="subtext"><%= gym.category %></p>
+              </div>
+              <div class="card-price">
+                <p>$<%= gym.price_per_hour %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+<p> <%= link_to "Create New Gym", new_gym_path %> </p>
