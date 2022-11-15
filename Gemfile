@@ -83,3 +83,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main
 
 # dotnev gem for security (hide keys)
 gem "dotenv-rails", groups: [:development, :test]
+
+# CLOUDINARY
+gem "cloudinary"
