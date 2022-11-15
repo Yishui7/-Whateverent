@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: transparent;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -30,16 +30,27 @@
 // -- Index Nav --
 .container-nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  background-color: rgb(234, 234, 234);
-  padding: 15px 35px;
+  background-color: $background-color;
+  border-bottom: 1px solid $primary-color;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
-
+.title-nav h2 {
+  color: $lightest-grey;
+  font-size: 36px;
+  &:hover {
+    color: $middle-grey;
+  }
+}
 .nav-options {
   display: flex;
   align-items: center;
-  h4 {
+  p {
     margin-left: 10px;
     margin-right: 10px;
+
   }
 }

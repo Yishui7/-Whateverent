@@ -1,6 +1,8 @@
 // -------INDEX CARD-------------
 .card-container {
   padding: 20px 35px;
+  margin-bottom: 40px;
+  margin-top: 45px;
 }
 .card-contents {
   display: flex;
@@ -10,11 +12,13 @@
   padding: 15px;
   padding-bottom: 20px;
   border-radius: 8px;
-  box-shadow: 1px 0px 9px 1px rgb(212, 212, 212);
+  box-shadow: 1px 0px 9px 1px $darkest-grey;
   transition: .4s;
+  background-color: #878287;
   &:hover {
     transition: .3s;
-    box-shadow: 1px 0px 3px 1px rgb(167, 167, 167);
+    box-shadow: 1px 0px 5px 4px $secondary-color;
+    color: $light-gray;
   }
 }
 .card-contents img {
@@ -28,10 +32,28 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 10px;
 }
-.card-details p {
-  margin-bottom: 5px;
+.card-details {
+  display: block;
+  flex-direction: column;
+  p {
+    margin-bottom: 0px;
+    font-size: 18px;
+
+  }
+  .subtext {
+    margin-top: 0px;
+    color: $darkest-grey;
+    padding-left: 3px;
+    font-size: 16px;
+  }
+  &:hover {
+    color: $middle-grey;
+    transition: .3s;
+  }
 }
+
 // --------INDEX CARD-------------
 
 // --------SHOW CARD--------------
