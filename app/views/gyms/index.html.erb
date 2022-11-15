@@ -3,6 +3,6 @@
 
 <ul>
   <% @gyms.each do |gym| %>
-  <li> <%= link_to gym.name, gym_path(gym) %> - <%= gym.category %> - $<%= gym.price %> </li>
+  <li> <%= link_to gym.name, gym_path(gym) %> - <%= gym.category %> - $<%= gym.price_per_hour %> </li>
   <% end %>
 </ul>

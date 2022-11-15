@@ -37,7 +37,7 @@ puts "Creating new gyms"
     # user_id = users.last.id
     # id_user: user_id,
     user: User.first,
-    price: Faker::Number.between(from: 1, to: 10),
+    price_per_hour: Faker::Number.between(from: 1, to: 10),
     address: Faker::Address.street_address,
     description: Faker::Lorem.sentence(word_count: 20),
     category: @categories.sample,
