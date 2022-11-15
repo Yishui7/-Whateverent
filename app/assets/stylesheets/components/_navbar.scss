@@ -10,3 +10,36 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+//--- Landing Nav ---
+.container-nav-simple {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(234, 234, 234);
+  margin-bottom: 10px;
+}
+.nav-options-simple {
+  display: flex;
+  h3 {
+    padding: 15px 35px;
+  }
+}
+//--- Landing Nav ---
+
+// -- Index Nav --
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(234, 234, 234);
+  padding: 15px 35px;
+}
+
+.nav-options {
+  display: flex;
+  align-items: center;
+  h4 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
