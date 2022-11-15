@@ -1,1 +1,13 @@
-<h1>showpage</h1>
+<h1> <%= @gym.name %> </h1>
+
+<p> <%= link_to "Home Page", gyms_path %> </p>
+
+<p><%= @gym.description %></p>
+<p>Address: <%= @gym.address %></p>
+<ul>
+  <li>Price per hour $<%= @gym.price %></li>
+  <li>Category: <%= @gym.category %></li>
+  <li>Capcity: <%= @gym.capacity %></li>
+</ul>
+
+<button>Book this gym</button>

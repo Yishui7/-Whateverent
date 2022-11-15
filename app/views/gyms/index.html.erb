@@ -1,1 +1,8 @@
 <h1>index</h1>
+<p> <%= link_to "Create New Gym", new_gym_path %> </p>
+
+<ul>
+  <% @gyms.each do |gym| %>
+  <li> <%= link_to gym.name, gym_path(gym) %> - <%= gym.category %> - $<%= gym.price %> </li>
+  <% end %>
+</ul>
