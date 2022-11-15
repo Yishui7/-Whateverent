@@ -1,3 +1,7 @@
+body {
+  background-color: $background-color;
+}
+
 .signup-container {
   height: 100vh;
   margin: 0px auto;
@@ -6,13 +10,24 @@
   align-items: center;
 }
 
+.form-header {
+  color: $primary-color;
+
+  h2 {
+    font-weight: 700 !important;
+  }
+}
+
 .form-container {
-  // background-color: #16A27F;
-  border: 1px solid #EBEAEB;
-  width: 40vw;
-  box-shadow: 1px 1px 12px #EBEAEB;
+  background-color: $lightest-grey;
+  width: 35vw;
+  box-shadow: 1px 1px 12px 2px $darkest-grey;
   border-radius: 8px;
   padding: 24px;
+}
+
+.form-input {
+  color: $background-color;
 }
 
 .text-center {
