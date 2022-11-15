@@ -13,9 +13,8 @@ class GymsController < ApplicationController
   end
 
   def create
-    @user_id = params[:user_id]
     @gym = Gym.new(gym_params)
-    @gym.user = @user_id
+    @gym.user = current_user
     if @gym.save!
       redirect_to gym_path(@gym)
     else
