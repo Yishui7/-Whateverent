@@ -1,7 +1,6 @@
 class Gym < ApplicationRecord
   belongs_to :user
   has_many :bookings
-
   validates :price, presence: true
   validates :address, presence: true
   validates :name, presence: true, uniqueness: true
