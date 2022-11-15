@@ -13,11 +13,10 @@ class GymsController < ApplicationController
   end
 
   def create
-    @user_id = params[:user_id]
     @gym = Gym.new(gym_params)
-    @gym.user = @user_id
-    if @gym.save!
-      redirect_to gym_path(@gym)
+    @gym.user = current_user
+    if @gym.save
+      redirect_to(@gym)
     else
       render :new, status: :unprocessable_entity
     end

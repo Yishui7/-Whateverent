@@ -1,0 +1,13 @@
+.primary-button {
+  width: 60%;
+  color: $lightest-grey;
+  background-color: $primary-color;
+  border: 2px solid $primary-color;
+  border-radius: 8px;
+
+  &:hover {
+    color: $primary-color;
+    background-color: $lightest-grey;
+    border: 2px solid $primary-color;
+  }
+}
