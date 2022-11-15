@@ -24,6 +24,16 @@ body {
   box-shadow: 1px 1px 12px 2px $darkest-grey;
   border-radius: 8px;
   padding: 24px;
+  opacity: 0.95;
+}
+
+.large-form-container {
+  background-color: $lightest-grey;
+  width: 45vw;
+  box-shadow: 1px 1px 12px 2px $darkest-grey;
+  border-radius: 8px;
+  padding: 24px;
+  opacity: 0.95;
 }
 
 .form-input, .form-label, .form-check-label {
