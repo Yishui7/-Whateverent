@@ -17,17 +17,27 @@ body {
   h2 {
     font-size: 84px;
     position: relative;
-    top: 60px;
-    left: 20px;
+    top: 50px;
+    left: 10px;
     padding-bottom: 0px;
     margin-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    // width: 30%;
+    // border-bottom: 1px solid $light-gray;
   }
   h4 {
     font-size: 24px;
     position: relative;
-    top: 60px;
-    left: 26px;
+    top: 45px;
+    left: 20px;
     font-weight: 300;
+    width: 40%;
+    border-top: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
+  }
+  span {
+    color: $primary-color;
   }
 }
 // settings to make button lower and centered
@@ -42,11 +52,11 @@ body {
   text-decoration: none;
   color: $middle-grey;
   padding: 10px 20px;
-  border: 1px solid $middle-grey;
+  border: 1px solid $primary-color;
   transition: .3s;
   &:hover {
     color: $darkest-grey;
-    box-shadow: inset 120px 000 $middle-grey;
+    box-shadow: inset 120px 000 $light-gray;
     transition: .4s;
   }
 }
