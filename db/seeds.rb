@@ -17,7 +17,7 @@ puts "Creating new users"
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 6, max_length: 20)
+    password: "123123"
   )
   puts "Created #{user.first_name}"
   user.save
