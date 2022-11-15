@@ -12,7 +12,7 @@
           <%= f.input :price_per_hour %>
           <%= f.input :capacity %>
           <%= f.input :description, :input_html => { :rows => 5 }%>
-          <%= f.input :photo, as: :file %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, 'Create gym listing', class:"primary-button w-100 mb-3" %>
         </div>
       <% end %>
