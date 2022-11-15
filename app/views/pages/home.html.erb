@@ -5,53 +5,15 @@
     <%# <h2>optional</h2> %>
   </div>
   <div class="nav-options-simple">
-    <h3>sign up</h3>
+    <h3> <%= link_to "sign up", new_user_registration_path, class: "nav-link" %></h3>
   </div>
 </div>
-
-<%# Index Nav %>
-<div class="container-nav">
-  <div class="title-nav">
+<div class="container-main">
+  <div class="container-header">
     <h2>Defit</h2>
+    <h4>Dad Strength</h4>
   </div>
-  <div class="nav-options">
-    <h4>account</h4>
-    <h4>log out</h4>
-  </div>
-</div>
-
-
-<%# card %>
-<div class="col-4 card-container">
-  <div class="card-layout">
-    <div class="card-contents">
-      <img src="https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="">
-      <div class="card-description">
-        <div class="card-details">
-          <p>gym name here</p>
-          <p>gym location</p>
-        </div>
-        <div class="card-price">
-          <p>gym price here</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<%# SHOW CARD %>
-<div class="large-card">
-  <div class="d-flex">
-    <div class="w-50" id="big-img">
-      <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class:"w-100" %>
-    </div>
-    <div class="w-50" id="multi-img">
-      <div class="grid">
-        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text" %>
-        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text" %>
-        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text" %>
-        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text" %>
-      </div>
-    </div>
+  <div class="container-button">
+    <%= link_to "FIND GYM", gyms_path, class: "join-button" %>
   </div>
 </div>
