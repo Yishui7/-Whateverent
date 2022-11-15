@@ -13,10 +13,11 @@ class GymsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @gym = Gym.new(gym_params)
     @gym.user = current_user
     if @gym.save
-      redirect_to(@gym)
+      redirect_to gym_path(@gym)
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,6 +33,6 @@ class GymsController < ApplicationController
   private
 
   def gym_params
-    params.require(:gym).permit(:price, :address, :name, :category, :capacity, :description)
+    params.require(:gym).permit(:price_per_hour, :address, :name, :category, :capacity, :description)
   end
 end
