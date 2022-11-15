@@ -1,1 +1,13 @@
 <h1>new</h1>
+<p> <%= link_to "Home Page", gyms_path %> </p>
+
+<%= simple_form_for @gym do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :category %>
+    <%= f.input :capacity %>
+    <%= f.input :address %>
+    <%= f.submit %>
+    <%= f.input :photo, as: :file %>
+  <% end %>

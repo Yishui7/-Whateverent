@@ -33,6 +33,5 @@ class GymsController < ApplicationController
 
   def gym_params
     params.require(:gym).permit(:price, :address, :name, :category, :capacity, :description)
-
   end
 end

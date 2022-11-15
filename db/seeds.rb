@@ -23,6 +23,14 @@ puts "Creating new users"
   user.save
 end
 
+@categories = [
+  "Cardio",
+  "Machine Weights",
+  "Free Weights",
+  "Calistenics",
+  "yoga"
+]
+
 puts "Creating new gyms"
 15.times do
   gym = Gym.new(
@@ -32,7 +40,7 @@ puts "Creating new gyms"
     price: Faker::Number.between(from: 1, to: 10),
     address: Faker::Address.street_address,
     description: Faker::Lorem.sentence(word_count: 20),
-    category: Faker::Lorem.word,
+    category: @categories.sample,
     name: Faker::Cannabis.brand,
     capacity: Faker::Number.between(from: 1, to: 5)
   )
