@@ -33,6 +33,6 @@ class GymsController < ApplicationController
   private
 
   def gym_params
-    params.require(:gym).permit(:price_per_hour, :address, :name, :category, :capacity, :description, :photo)
+    params.require(:gym).permit(:price_per_hour, :address, :name, :category, :capacity, :description, photos: [])
   end
 end

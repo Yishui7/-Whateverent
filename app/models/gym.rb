@@ -1,5 +1,5 @@
 class Gym < ApplicationRecord
-  has_one_attached :photo
+  has_many_attached :photos
   belongs_to :user
   has_many :bookings
   validates :price_per_hour, presence: true
