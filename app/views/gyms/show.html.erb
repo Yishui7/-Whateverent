@@ -33,20 +33,6 @@
   <div class="show-category">
     <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %></p>
   </div>
-</div>
-
-
-
-
-
-<p><%= @gym.description %></p>
-<p>Address: <%= @gym.address %></p>
-<ul>
-  <li>Price per hour $<%= @gym.price_per_hour %></li>
-  <li>Category: <%= @gym.category %></li>
-  <li>Capcity: <%= @gym.capacity %></li>
-</ul>
-
   <div class="show-content-container d-flex">
     <div class="show-title w-60">
       <h2>Gym owner - <%= @gym.user.first_name %></h2>
@@ -65,7 +51,7 @@
               <%= f.input :end_time %>
               <%= f.input :price_total %>
               <%= f.input :clients %>
-              <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3" %>
+              <%= f.button :submit, 'Create gym listing', class:"primary-button w-100 mb-3" %>
             </div>
           <% end %>
         </div>
