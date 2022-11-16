@@ -1,6 +1,43 @@
-<h1> <%= @gym.name %> </h1>
+<%# INDEX NAV %>
+<div class="container-nav">
+  <div class="title-nav">
+    <h2> <%= link_to "De-fit.", root_path %></h2>
+  </div>
+  <div class="nav-options">
+    <p>account</p>
+    <p><%= link_to "log out", destroy_user_session_path %></p>
+  </div>
+</div>
 
-<p> <%= link_to "Home Page", gyms_path %> </p>
+<div class="container">
+  <div class="show-header">
+    <h1><%= @gym.name %></h1>
+  </div>
+  <%# SHOW CARD - play with container %>
+  <div class="large-card">
+    <div class="d-flex">
+      <div class="w-50" id="big-img">
+        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class:"w-100" %>
+      </div>
+      <div class="w-50" id="multi-img">
+        <div class="grid">
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-left" %>
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-right" %>
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-left" %>
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-right" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="show-category">
+    <p>Category: <%= @gym.category %></p>
+    <p>Capacity: <%= @gym.capacity  %></p>
+  </div>
+</div>
+
+
+
+
 
 <p><%= @gym.description %></p>
 <p>Address: <%= @gym.address %></p>

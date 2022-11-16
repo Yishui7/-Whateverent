@@ -1,0 +1,23 @@
+// specific CSS for the show page
+.show-header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.show-category {
+  padding-top: 15px;
+  p {
+    margin: 0;
+  }
+}
+.w-100 {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.grid {
+  .top-right {
+    border-top-right-radius: 10px;
+  }
+  .bottom-right {
+    border-bottom-right-radius: 10px;
+  }
+}
