@@ -5,7 +5,8 @@
   </div>
   <div class="nav-options">
     <p>account</p>
-    <p><%= link_to "log out", destroy_user_session_path %></p>
+    <p><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
+    class: "dropdown-item" %></p>
   </div>
 </div>
 
