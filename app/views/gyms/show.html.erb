@@ -10,6 +10,11 @@
   </div>
 </div>
 
+<%# @gym.photos.each do |photo| %>
+  <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <%#= cl_image_tag photo.key %>
+<%# end %>
+
 <div class="container">
   <div class="show-header">
     <h1><%= @gym.name %></h1>
@@ -19,14 +24,14 @@
   <div class="large-card">
     <div class="d-flex">
       <div class="w-50" id="big-img">
-        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class:"w-100" %>
+        <%= cl_image_tag @gym.photos.first.key, class:"w-100" %>
       </div>
       <div class="w-50" id="multi-img">
         <div class="grid">
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-left" %>
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-right" %>
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-left" %>
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-right" %>
+          <%= cl_image_tag @gym.photos.second.key, alt: "text", class: "top-left secondary-img"  %>
+          <%= cl_image_tag @gym.photos.third.key, alt: "text", class: "top-right secondary-img" %>
+          <%= cl_image_tag @gym.photos.fourth.key, alt: "text", class: "bottom-left secondary-img" %>
+          <%= cl_image_tag @gym.photos.fifth.key, alt: "text", class: "bottom-right secondary-img" %>
         </div>
       </div>
     </div>

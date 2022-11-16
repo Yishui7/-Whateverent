@@ -18,7 +18,11 @@
       <div class="col-4 col-lg-4 card-layout">
         <%= link_to gym_path(gym) do %>
           <div class="card-contents">
+          <% if gym.photos.attached? %>
+            <%= cl_image_tag gym.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
             <img src="https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="">
+          <% end %>
             <div class="card-description">
               <div class="card-details">
                 <p><%= gym.name %></p>
