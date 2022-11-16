@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require 'open-uri'
 
 puts "Detroying users"
 User.destroy_all
@@ -19,8 +20,8 @@ puts "Creating new users"
     email: Faker::Internet.email,
     password: "123123"
   )
-  puts "Created #{user.first_name}"
   user.save
+  puts "Created #{user.first_name}"
 end
 
 @categories = [
@@ -31,12 +32,25 @@ end
   "yoga"
 ]
 
+@owner = User.all
+
+# @features_list = [
+#   "squat rack",
+#   "exercise bike",
+#   "free weights",
+#   "treadmill",
+#   "yoga mats",
+#   "kettlebells"
+# ]
+
+
 puts "Creating new gyms"
+
 15.times do
   gym = Gym.new(
     # user_id = users.last.id
     # id_user: user_id,
-    user: User.first,
+    user: @owner.sample,
     price_per_hour: Faker::Number.between(from: 1, to: 10),
     address: Faker::Address.street_address,
     description: Faker::Lorem.sentence(word_count: 20),
@@ -44,6 +58,13 @@ puts "Creating new gyms"
     name: Faker::Cannabis.brand,
     capacity: Faker::Number.between(from: 1, to: 5)
   )
-  puts "Created #{gym.name}"
+
+  puts "Uploading photos for #{gym.name}"
+  5.times do
+    file = URI.open("https://source.unsplash.com/random/?homegym")
+    gym.photos.attach(io: file, filename: "gym.jpg", content_type: "image/jpg")
+  end
+
   gym.save
+  puts "Created #{gym.name}"
 end
