@@ -15,5 +15,5 @@ class Gym < ApplicationRecord
   validates :category, presence: true, inclusion: { in: CATEGORIES }
   validates :capacity, presence: true
   validates :description, presence: true
-  # validates :photo, presence: true
+  validates :photos, presence: true
 end
