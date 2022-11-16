@@ -5,9 +5,15 @@
   </div>
   <div class="nav-options">
     <p>account</p>
-    <p><%= link_to "log out", destroy_user_session_path %></p>
+    <p><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
+    class: "dropdown-item" %></p>
   </div>
 </div>
+
+<%# @gym.photos.each do |photo| %>
+  <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <%#= cl_image_tag photo.key %>
+<%# end %>
 
 <div class="container">
   <div class="show-header">
@@ -18,14 +24,14 @@
   <div class="large-card">
     <div class="d-flex">
       <div class="w-50" id="big-img">
-        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class:"w-100" %>
+        <%= cl_image_tag @gym.photos.first.key, class:"w-100" %>
       </div>
       <div class="w-50" id="multi-img">
         <div class="grid">
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-left" %>
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-right" %>
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-left" %>
-          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-right" %>
+          <%= cl_image_tag @gym.photos.second.key, alt: "text", class: "top-left secondary-img"  %>
+          <%= cl_image_tag @gym.photos.third.key, alt: "text", class: "top-right secondary-img" %>
+          <%= cl_image_tag @gym.photos.fourth.key, alt: "text", class: "bottom-left secondary-img" %>
+          <%= cl_image_tag @gym.photos.fifth.key, alt: "text", class: "bottom-right secondary-img" %>
         </div>
       </div>
     </div>
@@ -33,20 +39,6 @@
   <div class="show-category">
     <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %></p>
   </div>
-</div>
-
-
-
-
-
-<p><%= @gym.description %></p>
-<p>Address: <%= @gym.address %></p>
-<ul>
-  <li>Price per hour $<%= @gym.price_per_hour %></li>
-  <li>Category: <%= @gym.category %></li>
-  <li>Capcity: <%= @gym.capacity %></li>
-</ul>
-
   <div class="show-content-container d-flex">
     <div class="show-title w-60">
       <h2>Gym owner - <%= @gym.user.first_name %></h2>
@@ -65,7 +57,7 @@
               <%= f.input :end_time, minute_step: 15 %>
               <%= f.input :price_total %>
               <%= f.input :clients %>
-              <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3" %>
+              <%= f.button :submit, 'Create gym listing', class:"primary-button w-100 mb-3" %>
             </div>
           <% end %>
         </div>
@@ -76,3 +68,4 @@
 
 <%# You are figuring out how to get time to 12hr minutes am/pm %>
 <%# Min value for integer inputs %>
+
