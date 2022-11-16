@@ -60,9 +60,9 @@
         <div class="large-form-container-booking">
           <%= simple_form_for @booking do |f| %>
             <div class="form-inputs">
-              <%= f.input :date, autofocus: true %>
-              <%= f.input :start_time %>
-              <%= f.input :end_time %>
+              <%= f.input :date, as: :date, html5: true, autofocus: true %>
+              <%= f.input :start_time, minute_step: 15 %>
+              <%= f.input :end_time, minute_step: 15 %>
               <%= f.input :price_total %>
               <%= f.input :clients %>
               <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3" %>
@@ -73,3 +73,6 @@
     </div>
   </div>
 </div>
+
+<%# You are figuring out how to get time to 12hr minutes am/pm %>
+<%# Min value for integer inputs %>
