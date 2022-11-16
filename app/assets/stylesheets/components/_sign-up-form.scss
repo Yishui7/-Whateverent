@@ -1,3 +1,4 @@
+// Classic Sign-up Form
 body {
   background-color: $background-color;
 }
@@ -30,6 +31,46 @@ body {
 .large-form-container {
   background-color: $lightest-grey;
   width: 45vw;
+  box-shadow: 1px 1px 12px 2px $darkest-grey;
+  border-radius: 8px;
+  padding: 24px;
+  opacity: 0.95;
+}
+
+.form-input, .form-label, .form-check-label {
+  color: $background-color;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+// Booking Form
+body {
+  background-color: $background-color;
+}
+
+.signup-container-booking {
+  height: 75vh;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex;
+}
+
+.form-header-booking {
+  color: $primary-color;
+
+  h1 {
+    font-weight: 300 !important;
+    padding-top: 20px;
+  }
+}
+
+.large-form-container-booking {
+  background-color: $lightest-grey;
+  width: 35vw;
   box-shadow: 1px 1px 12px 2px $darkest-grey;
   border-radius: 8px;
   padding: 24px;

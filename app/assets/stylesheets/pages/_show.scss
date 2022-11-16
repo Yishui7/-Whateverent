@@ -1,12 +1,28 @@
 // specific CSS for the show page
+body {
+  color: $light-gray
+}
 .show-header {
   padding-top: 20px;
-  padding-bottom: 10px;
+  margin: 0 auto;
+  p {
+    padding-left: 5px;
+    color: $middle-grey;
+  }
 }
 .show-category {
+  display: flex;
+  flex-direction: column;
   padding-top: 15px;
   p {
     margin: 0;
+    color: $light-gray;
+  }
+  span {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: $primary-color;
+    font-size: 18px;
   }
 }
 .w-100 {
@@ -20,4 +36,8 @@
   .bottom-right {
     border-bottom-right-radius: 10px;
   }
+}
+.show-title {
+  padding-top: 20px;
+  padding-right: 10px;
 }

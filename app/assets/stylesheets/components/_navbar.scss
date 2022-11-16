@@ -1,3 +1,12 @@
+a {
+  text-decoration: none;
+  color: $light-gray;
+  transition: .3s;
+  &:hover {
+    color: $lightest-grey;
+    transition: .3s;
+  }
+}
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;

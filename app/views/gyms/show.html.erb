@@ -12,6 +12,7 @@
 <div class="container">
   <div class="show-header">
     <h1><%= @gym.name %></h1>
+    <p><%= @gym.address %></p>
   </div>
   <%# SHOW CARD - play with container %>
   <div class="large-card">
@@ -30,8 +31,7 @@
     </div>
   </div>
   <div class="show-category">
-    <p>Category: <%= @gym.category %></p>
-    <p>Capacity: <%= @gym.capacity  %></p>
+    <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %></p>
   </div>
 </div>
 
@@ -47,39 +47,29 @@
   <li>Capcity: <%= @gym.capacity %></li>
 </ul>
 
-<div class="text-center form-header p-5">
-    <h1>Book this gym</h1>
-  </div>
-  <div class="signup-container">
-    <div class="large-form-container">
-      <%= simple_form_for @booking do |f| %>
-        <div class="form-inputs">
-          <%= f.input :date, autofocus: true %>
-          <%= f.input :start_time %>
-          <%= f.input :end_time %>
-          <%= f.input :price_total %>
-          <%= f.input :clients, label: 'Number of clients' %>
-          <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3" %>
+  <div class="show-content-container d-flex">
+    <div class="show-title w-60">
+      <h2>Gym owner - <%= @gym.user.first_name %></h2>
+      <p><%= @gym.description %></p>
+    </div>
+    <div class="booking-form w-40">
+      <div class="text-center form-header-booking">
+        <h1>Book this gym</h1>
+      </div>
+      <div class="signup-container-booking">
+        <div class="large-form-container-booking">
+          <%= simple_form_for @booking do |f| %>
+            <div class="form-inputs">
+              <%= f.input :date, autofocus: true %>
+              <%= f.input :start_time %>
+              <%= f.input :end_time %>
+              <%= f.input :price_total %>
+              <%= f.input :clients %>
+              <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3" %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-
-  <%# create_table "bookings", force: :cascade do |t|
-    t.integer "date"
-    t.integer "start_time"
-    t.integer "end_time"
-    t.integer "price_total"
-    t.string "status"
-    t.bigint "user_id", null: false
-    t.bigint "gym_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "duration"
-    t.integer "total_price"
-    t.index ["gym_id"], name: "index_bookings_on_gym_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id" %>
-
-<%# @gym.photos.each do |photo| %>
-  <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<%# end %>
+</div>
