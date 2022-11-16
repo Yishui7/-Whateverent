@@ -45,9 +45,6 @@
       <p><%= @gym.description %></p>
     </div>
     <div class="booking-form w-40">
-      <div class="text-center form-header-booking">
-        <h1>Book this gym</h1>
-      </div>
       <div class="signup-container-booking">
         <div class="large-form-container-booking">
           <%= simple_form_for @booking do |f| %>
@@ -55,9 +52,12 @@
               <%= f.input :date, as: :date, html5: true, autofocus: true %>
               <%= f.input :start_time, minute_step: 15 %>
               <%= f.input :end_time, minute_step: 15 %>
-              <%= f.input :price_total %>
-              <%= f.input :clients %>
-              <%= f.button :submit, 'Create gym listing', class:"primary-button w-100 mb-3" %>
+              <%= f.input :clients, label: "Number of people attending", placeholder: "Maximum #{@gym.capacity}", input_html: { min: '0', max: @gym.capacity} %>
+              <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3" %>
+              <div class="price">
+                <p>Total price</p>
+                <%= @booking.total_price.nil? ? "$0" : "$#{@booking.total_price}" %>
+              </div>
             </div>
           <% end %>
         </div>
