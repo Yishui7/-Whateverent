@@ -24,13 +24,6 @@ puts "Creating new users"
   puts "Created #{user.first_name}"
 end
 
-@categories = [
-  "Cardio",
-  "Machine Weights",
-  "Free Weights",
-  "Calistenics",
-  "yoga"
-]
 
 @owner = User.all
 
@@ -43,7 +36,6 @@ end
 #   "kettlebells"
 # ]
 
-
 puts "Creating new gyms"
 
 12.times do
@@ -54,7 +46,7 @@ puts "Creating new gyms"
     price_per_hour: Faker::Number.between(from: 1, to: 10),
     address: Faker::Address.street_address,
     description: Faker::Lorem.sentence(word_count: 40),
-    category: @categories.sample,
+    category: Gym::CATEGORIES.sample,
     name: Faker::Cannabis.brand,
     capacity: Faker::Number.between(from: 1, to: 5)
   )

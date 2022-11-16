@@ -38,9 +38,14 @@
   display: block;
   flex-direction: column;
   p {
+    color: $lightest-grey;
     margin-bottom: 0px;
     font-size: 18px;
-
+    transition: .3s;
+    &:hover {
+      color: $middle-grey;
+      transition: .4s;
+    }
   }
   .subtext {
     margin-top: 0px;
