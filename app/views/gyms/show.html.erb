@@ -1,4 +1,13 @@
-<h1> <%= @gym.name %> </h1>
+<%# INDEX NAV %>
+<div class="container-nav">
+  <div class="title-nav">
+    <h2> <%= link_to "De-fit.", root_path %></h2>
+  </div>
+  <div class="nav-options">
+    <p>account</p>
+    <p><%= link_to "log out", destroy_user_session_path %></p>
+  </div>
+</div>
 
 <p> <%= link_to "Home Page", gyms_path %> </p>
 
@@ -15,3 +24,53 @@
 <% @gym.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+<div class="container">
+  <div class="show-header">
+    <h1><%= @gym.name %></h1>
+    <p><%= @gym.address %></p>
+  </div>
+  <%# SHOW CARD - play with container %>
+  <div class="large-card">
+    <div class="d-flex">
+      <div class="w-50" id="big-img">
+        <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class:"w-100" %>
+      </div>
+      <div class="w-50" id="multi-img">
+        <div class="grid">
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-left" %>
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "top-right" %>
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-left" %>
+          <%= image_tag "https://images.unsplash.com/photo-1611094607507-8c8173e5cf33?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", alt: "text", class: "bottom-right" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="show-category">
+    <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %></p>
+  </div>
+  <div class="show-content-container d-flex">
+    <div class="show-title w-60">
+      <h2>Gym owner - <%= @gym.user.first_name %></h2>
+      <p><%= @gym.description %></p>
+    </div>
+    <div class="booking-form w-40">
+      <div class="text-center form-header-booking">
+        <h1>Book this gym</h1>
+      </div>
+      <div class="signup-container-booking">
+        <div class="large-form-container-booking">
+          <%= simple_form_for @booking do |f| %>
+            <div class="form-inputs">
+              <%= f.input :date, autofocus: true %>
+              <%= f.input :start_time %>
+              <%= f.input :end_time %>
+              <%= f.input :price_total %>
+              <%= f.input :clients %>
+              <%= f.button :submit, 'Create gym listing', class:"primary-button w-100 mb-3" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

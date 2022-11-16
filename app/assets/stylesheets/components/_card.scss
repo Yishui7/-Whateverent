@@ -59,33 +59,47 @@
 // --------SHOW CARD--------------
 
 .large-card {
-  box-shadow: 1px 0px 9px 1px rgb(212, 212, 212);
+  box-shadow: 1px 0px 9px 1px $background-color;
   transition: .3s;
-  padding: 20px 25px;
-  width: 90%;
+  // padding: 20px 25px; maybe don't want it for the show page
+  width: 100%;
   &:hover {
     transition: .3s;
-    box-shadow: 1px 0px 3px 1px rgb(167, 167, 167);
+    box-shadow: 1px 0px 3px 1px $background-color;
   }
 }
-.d-flex {
-  padding-left: 16px;
-}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  padding: 0 16px;
+  grid-gap: 14px;
+  // padding: 0 16px;
+  // padding-left: 16px;
   justify-content: center;
   height: 100%;
 
   img {
     width: 100%;
     object-fit: cover;
+    transition: .3s;
+    &:hover {
+      box-shadow: 0px 0px 3px 2px $secondary-color;
+      transition: .4s;
+    }
   }
 }
 #big-img {
-  width: 100%;
+  transition: .3s;
+  &:hover {
+    transition: .4s;
+  }
+  img {
+    height: 100%;
+    padding-right: 14px;
+    &:hover {
+      box-shadow: 0px 0px 3px 2px $secondary-color;
+    }
+  }
 }
 #multi-img {
   align-self: center;

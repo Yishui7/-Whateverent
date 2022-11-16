@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = Booking.all
   end
@@ -24,15 +23,13 @@ class BookingsController < ApplicationController
   def update
   end
 
+  private
 
-private
+  def booking_params
+    params.require(:booking_form).permit(:date, :start_time, :end_time)
+  end
 
-def booking_params
-  params.require(:booking_form).permit(:date, :start_time, :end_time)
-end
-
-def cancel_booking
-  @booking.status = "inactive"
-end
-
+  def cancel_booking
+    @booking.status = "inactive"
+  end
 end

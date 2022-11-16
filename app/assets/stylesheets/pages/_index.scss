@@ -1,12 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
-a {
-  text-decoration: none;
-  color: $light-gray;
-  &:hover {
-    color: $middle-grey;
-  }
-}
+@import "show";
+
 .card-layout {
   padding: 15px;
 }
