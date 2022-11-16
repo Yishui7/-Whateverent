@@ -50,6 +50,40 @@
 
 
 
+<div class="text-center form-header p-5">
+    <h1>Book this gym</h1>
+  </div>
+  <div class="signup-container">
+    <div class="large-form-container">
+      <%= simple_form_for @booking do |f| %>
+        <div class="form-inputs">
+          <%= f.input :date, autofocus: true %>
+          <%= f.input :start_time %>
+          <%= f.input :end_time %>
+          <%= f.input :price_total %>
+          <%= f.input :clients %>
+          <%= f.button :submit, 'Create gym listing', class:"primary-button w-100 mb-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%# create_table "bookings", force: :cascade do |t|
+    t.integer "date"
+    t.integer "start_time"
+    t.integer "end_time"
+    t.integer "price_total"
+    t.string "status"
+    t.bigint "user_id", null: false
+    t.bigint "gym_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "duration"
+    t.integer "total_price"
+    t.index ["gym_id"], name: "index_bookings_on_gym_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id" %>
+
+
 <%# @gym.photos.each do |photo| %>
   <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <%# end %>

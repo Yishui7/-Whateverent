@@ -1,11 +1,11 @@
 class GymsController < ApplicationController
-
   def index
     @gyms = Gym.all
   end
 
   def show
-    @gym  = Gym.find(params[:id])
+    @gym = Gym.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -28,7 +28,6 @@ class GymsController < ApplicationController
 
   def update
   end
-
 
   private
 
