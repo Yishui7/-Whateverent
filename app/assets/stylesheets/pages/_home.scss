@@ -15,7 +15,9 @@ body {
   position: relative;
 
   h2 {
+    font-family: $body-font;
     font-size: 84px;
+    font-weight: 300;
     position: relative;
     top: 50px;
     left: 10px;
