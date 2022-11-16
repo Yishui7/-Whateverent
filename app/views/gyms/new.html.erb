@@ -8,7 +8,7 @@
         <div class="form-inputs">
           <%= f.input :name, autofocus: true %>
           <%= f.input :address %>
-          <%= f.input :category %>
+          <%= f.input :category, collection: Gym::CATEGORIES%>
           <%= f.input :price_per_hour %>
           <%= f.input :capacity %>
           <%= f.input :description, :input_html => { :rows => 5 }%>
