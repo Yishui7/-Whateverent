@@ -30,8 +30,17 @@
     </div>
   </div>
   <div class="show-category">
-    <p>Category: <%= @gym.category %></p>
-    <p>Capacity: <%= @gym.capacity  %></p>
+    <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %></p>
+
+  </div>
+  <div class="show-content-container d-flex">
+    <div class="show-title w-60">
+      <h2>Gym owner -<%= @gym.user.first_name %></h2>
+      <p><%= @gym.description %></p>
+    </div>
+    <div class="booking-form w-40">
+      <p>Book this gym you would love to workout here and sweat and have a good time</p>
+    </div>
   </div>
 </div>
 
@@ -39,13 +48,7 @@
 
 
 
-<p><%= @gym.description %></p>
-<p>Address: <%= @gym.address %></p>
-<ul>
-  <li>Price per hour $<%= @gym.price_per_hour %></li>
-  <li>Category: <%= @gym.category %></li>
-  <li>Capcity: <%= @gym.capacity %></li>
-</ul>
+
 
 <div class="text-center form-header p-5">
     <h1>Book this gym</h1>
@@ -79,6 +82,7 @@
     t.integer "total_price"
     t.index ["gym_id"], name: "index_bookings_on_gym_id"
     t.index ["user_id"], name: "index_bookings_on_user_id" %>
+
 
 <%# @gym.photos.each do |photo| %>
   <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
