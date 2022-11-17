@@ -4,8 +4,14 @@ body {
 }
 .gyms-link {
   margin-top: 10px;
-  margin-left: 15px;
-
+  padding-left: 18px;
+  margin-left: 5px;
+  font-size: 14px;
+  // border-bottom: 1px solid $primary-color;
+  // width: 9%;
+  span {
+    color: $primary-color;
+  }
 }
 .show-content-container {
   justify-content: space-between;

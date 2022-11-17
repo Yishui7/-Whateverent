@@ -7,7 +7,7 @@
   <%#= cl_image_tag photo.key %>
 <%# end %>
 
-<p class="gyms-link"><%= link_to "<- Back to gyms", gyms_path, class: "nav-link"  %></p>
+<p class="gyms-link"><%= link_to "BACK TO GYMS", request.referrer, class: "nav-link"  %></p>
 
 <div class="container">
   <div class="show-header">
