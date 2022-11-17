@@ -2,6 +2,16 @@
 @import "home";
 @import "show";
 
+
+
+// INDEX PAGE SPECIFIC CSS HERE
 .card-layout {
   padding: 15px;
+}
+
+.index-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 30px;
 }

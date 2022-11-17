@@ -2,7 +2,7 @@
 .card-container {
   padding: 20px 35px;
   margin-bottom: 40px;
-  margin-top: 45px;
+  margin-top: 10px;
 }
 .card-contents {
   display: flex;
@@ -117,4 +117,56 @@
   max-height: 218px;
   height: 218px;
   max-width: 320px;
+}
+
+
+// ---------ADD GYM CARD----------------
+
+.card-contents-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 15px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  // box-shadow: 1px 0px 9px 1px $darkest-grey;
+  border: 1.5px solid $primary-color;
+  transition: .4s;
+  background-color: transparent;
+  &:hover {
+    transition: .4s;
+    box-shadow: 1px 0px 4px 3px $secondary-color;
+    border: 1px solid $darkest-grey;
+    color: $light-gray;
+  }
+}
+.card-description-add {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.card-details-add {
+  display: block;
+  flex-direction: column;
+  p {
+    color: $lightest-grey;
+    margin-bottom: 0px;
+    font-size: 26px;
+    transition: .3s;
+    &:hover {
+      color: $darkest-grey;
+      transition: .4s;
+    }
+    a  {
+      transition: .3s;
+      &:hover {
+      color: $middle-grey;
+      transition: .4s;
+      }
+    }
+  }
+
 }

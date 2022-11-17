@@ -1,18 +1,18 @@
 
 <%# Landing Nav %>
-<div class="container-nav-simple">
-  <div class="title-nav">
-    <%# <h2>optional</h2> %>
-  </div>
-  <div class="nav-options-simple">
-    <h3> <%= link_to "sign up", new_user_registration_path, class: "nav-link" %></h3>
-  </div>
-</div>
+<%= render partial: "components/land_nav" %>
+
 <%# Cover Section %>
 <div class="container-main">
-  <div class="container-header">
+  <div class="container-header col-4">
     <h2>De-fit<span>.</span></h2>
     <h4></h4>
+  </div>
+  <div class="description-home col-4">
+    <h4>Decentralized Fitness</h4>
+    <p>
+      The link between those in need of a fitness space and those who have one to share
+    </p>
   </div>
   <div class="container-button">
     <%= link_to "FIND GYM", gyms_path, class: "join-button" %>
