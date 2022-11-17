@@ -41,15 +41,15 @@
           </div>
         </div>
   </div>
-  <h2>Your Bookings</h2>
-
-<% @booking_requests.each do |booking| %>
-<%= booking.date %>
-<% end %>
-
-
 </div>
 <% else %>
   </div>
 </div>
 <% end %>
+
+<div class="container">
+  <h2>Your Bookings</h2>
+    <% @booking_requests.each do |booking| %>
+      <%= booking.date %>
+    <% end %>
+</div>
