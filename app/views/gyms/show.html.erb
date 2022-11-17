@@ -12,7 +12,10 @@
 <div class="container">
   <div class="show-header">
     <h1><%= @gym.name %></h1>
-    <p><%= @gym.address %></p>
+    <div class="show-content-container d-flex">
+      <p><%= @gym.address %></p>
+      <p> <%= link_to "edit", edit_gym_path(params[:id]), class: "secondary-button" %></p>
+    </div>
   </div>
   <%# SHOW CARD - play with container %>
   <div class="large-card">
