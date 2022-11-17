@@ -6,8 +6,8 @@
     </div>
     <div class="nav-options">
       <p>account</p>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
-      class: "dropdown-item" %>
+      <p><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
+      class: "dropdown-item" %></p>
     </div>
   </div>
   <% else %>
@@ -16,8 +16,7 @@
       <h2><%= link_to "De-fit.", root_path, class: "nav-link"  %></h2>
     </div>
     <div class="nav-options">
-      <%= link_to "Log In", destroy_user_session_path, data: {turbo_method: :delete},
-      class: "dropdown-item" %>
+      <p><%= link_to "Log In", new_user_registration_path, class: "nav-link" %></p>
     </div>
   </div>
  <% end %>
