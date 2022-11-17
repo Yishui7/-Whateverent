@@ -9,4 +9,4 @@ Rails.application.routes.draw do
   resources :bookings, only: [:edit, :update, :index]
   # Defines the root path route ("/")
   # root "articles#index"
-  end
+end
