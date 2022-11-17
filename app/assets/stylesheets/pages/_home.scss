@@ -33,7 +33,7 @@ body {
     position: relative;
     // top: 45px;
     // left: 20px;
-    font-weight: 300;
+    font-weight: 200;
     width: 130%;
     border-top: 1px solid $primary-color;
     border-bottom: 1px solid $primary-color;
@@ -46,6 +46,12 @@ body {
   padding-top: 5px;
   border-right: 2px solid $primary-color;
   height: 40%;
+  h4 {
+    font-weight: 200;
+  }
+  p {
+    font-weight: 300;
+  }
 }
 // settings to make button lower and centered
 .container-button {

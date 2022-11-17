@@ -3,16 +3,19 @@
   margin-bottom: 40px;
   margin-top: 10px;
 }
+
 .card-contents-booking {
   color: $light-gray;
   display: flex;
+  grid-auto-columns: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   padding: 15px;
   padding-bottom: 15px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
   border-radius: 8px;
   box-shadow: 1px 0px 9px 1px $darkest-grey;
   transition: .4s;
@@ -68,6 +71,16 @@
     font-size: 18px;
     color: $darkest-grey;
   }
+}
+.add-box {
+  font-size: 18px;
+}
+.booking-date {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+#text-white {
+  color: $lightest-grey;
 }
 
 // --------INDEX CARD-------------
