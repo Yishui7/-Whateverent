@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 
     #booking requests for the current users gyms divided by status
     @gym_bookings_pending = @user_gym_booking_requests.select do |booking|
-                        gym.status = "pending"
+                        booking.status = "pending"
     end
     @gym_bookings_confirmed = @user_gym_booking_requests.select do |booking|
       booking.status = "confirmed"
