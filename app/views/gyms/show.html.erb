@@ -43,7 +43,7 @@
   </div>
   <div class="show-content-container d-flex">
     <div class="show-title w-60">
-      <h2>Gym owner - <%= @gym.user.first_name %></h2>
+      <h3>Gym owner - <%= @gym.user.first_name %></h3>
       <p><%= @gym.description %></p>
     </div>
     <div class="booking-form w-40">
@@ -51,7 +51,7 @@
         <div class="large-form-container-booking">
           <%= simple_form_for [@gym, @booking] do |f| %>
             <div class="form-inputs">
-              <%= f.input :date, as: :date, html5: true, autofocus: true %>
+              <%= f.input :date, as: :date, html5: true %>
               <%= f.input :start_time, minute_step: 15 %>
               <%= f.input :end_time, minute_step: 15 %>
               <%= f.input :clients, label: "Number of people attending", placeholder: "Maximum #{@gym.capacity}", input_html: { min: '0', max: @gym.capacity} %>

@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     @users_gyms = current_user.gyms
     @user_gym_booking_requests = []
     @users_gyms.each do |gym|
-      @user_gym_bookings.push(gym.bookings)
+      @user_gym_booking_requests.push(gym.bookings)
     end
     @user_gym_booking_requests.flatten!
     @bookings_pending = @user_gym_booking_requests.select do |gym|
@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     end
 
     @booking_requests = current_user.bookings
-    @gyms = current_user.gyms
+
   end
 
   def create

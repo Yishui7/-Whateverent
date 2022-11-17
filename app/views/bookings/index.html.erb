@@ -1,1 +1,7 @@
-<%= @ %>
+<% @users_gyms.each do |gym| %>
+<%= gym.name %>
+<% end %>
+<h3><%= @user_gym_booking_requests %></h3>
+<% @booking_requests.each do |request| %>
+  <%= request.status %>
+<% end %>
