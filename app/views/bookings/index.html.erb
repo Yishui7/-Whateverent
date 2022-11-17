@@ -41,6 +41,7 @@
           </div>
         </div>
   </div>
+
   <h2>Your bookings for other gyms</h2>
 
   <% @booking_requests.each do |booking| %>
@@ -59,3 +60,10 @@
   </div>
 </div>
 <% end %>
+
+<div class="container">
+  <h2>Your Bookings</h2>
+    <% @booking_requests.each do |booking| %>
+      <%= booking.date %>
+    <% end %>
+</div>
