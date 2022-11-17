@@ -1,1 +1,48 @@
-<h1>yoyoyo</h1>
+<%= render "components/page_nav" %>
+
+<p class="gyms-link"><%= link_to "<- Back to gyms", gyms_path, class: "nav-link"  %></p>
+
+<%# Users Gyms %>
+<div class="container">
+  <h1> <%= current_user.first_name %> <%= current_user.last_name %> </h1>
+  <h2> Your Gyms </h2>
+  <div class="row card-container">
+    <% current_user.gyms.each do |gym|%>
+      <div class="col-4 col-lg-4 card-layout">
+          <%= link_to gym_path(gym) do %>
+            <div class="card-contents">
+              <% if gym.photos.attached? %>
+                <%= cl_image_tag gym.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="">
+              <% end %>
+                <div class="card-description">
+                  <div class="card-details">
+                    <p><%= gym.name %></p>
+                    <p class="subtext"><%= gym.category %></p>
+                  </div>
+                  <div class="card-price">
+                    <p>$<%= gym.price_per_hour %>/hr</p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div class="col-4 col-lg-4 card-layout">
+          <div class="card-contents-add">
+            <div class="card-description-add">
+              <div class="card-details-add">
+                <p><%= link_to "+ Add your gym", new_gym_path %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <h2>Your Bookings</h2>
+</div>
+<% else %>
+  </div>
+</div>
+<% end %>
