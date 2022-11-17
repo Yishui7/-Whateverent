@@ -1,16 +1,10 @@
 <%# Index Nav %>
-<div class="container-nav">
-  <div class="title-nav">
-    <h2> <%= link_to "De-fit.", root_path %></h2>
-  </div>
-  <div class="nav-options">
-    <p>account</p>
-    <p><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
-    class: "dropdown-item" %></p>
-  </div>
+<%= render "components/page_nav" %>
+
+
+<div class="index-link">
+  <p> <%= link_to "+ Add your gym", new_gym_path %> </p>
 </div>
-
-
 
 <div class="container">
   <div class="row card-container">
@@ -29,18 +23,27 @@
                 <p class="subtext"><%= gym.category %></p>
               </div>
               <div class="card-price">
-                <p>$<%= gym.price_per_hour %></p>
+                <p>$<%= gym.price_per_hour %>/hr</p>
               </div>
             </div>
           </div>
         <% end %>
       </div>
     <% end %>
+      <%# user signed in to see create gym card %>
+      <% if user_signed_in? %>
+        <div class="col-4 col-lg-4 card-layout">
+          <div class="card-contents-add">
+            <div class="card-description-add">
+              <div class="card-details-add">
+                <p><%= link_to "+ Add your gym", new_gym_path %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
   </div>
 </div>
-
-
-
-
-
-<p> <%= link_to "Create New Gym", new_gym_path %> </p>
+<% else %>
+  </div>
+</div>
+<% end %>
