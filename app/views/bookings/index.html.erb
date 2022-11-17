@@ -41,12 +41,18 @@
           </div>
         </div>
   </div>
-  <h2>Your Bookings</h2>
+  <h2>Your bookings for other gyms</h2>
 
-<% @booking_requests.each do |booking| %>
-<%= booking.date %>
-<% end %>
-
+  <% @booking_requests.each do |booking| %>
+        <h2><%= booking.gym.name %></h2>
+    <ul>
+        <li><%= booking.status %></li>
+        <li><%= booking.duration %></li>
+        <li><%= booking.start_time %></li>
+        <li><%= booking.date %></li>
+        <li><%= booking.total_price %></li>
+    </ul>
+  <% end %>
 
 </div>
 <% else %>
