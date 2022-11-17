@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     #all booking requests for a users gym
     @user_gym_booking_requests = []
     @users_gyms.each do |gym|
-      @user_gym_bookings.push(gym.bookings)
+      @user_gym_booking_requests.push(gym.bookings)
     end
     @user_gym_booking_requests.flatten!
 
@@ -53,9 +53,9 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.gym = Gym.find(params[:gym_id])
     if @booking.save
-      redirect_to booking_path(@gym)
+      redirect_to profile_path
     else
-      render :new, status: :unprocessable_entity
+      render "gyms/show", status: :unprocessable_entity
     end
   end
 
