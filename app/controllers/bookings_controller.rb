@@ -28,16 +28,16 @@ class BookingsController < ApplicationController
     @booking_requests = current_user.bookings
 
     #booking requests by the current user divided by status
-    @user_bookings_pending = @user_bookings_pending.select do |booking|
-      gym.status = "pending"
+    @user_bookings_pending = @booking_requests.select do |booking|
+      booking.status = "pending"
     end
-    @user_bookings_confirmed = @user_bookings_pending.select do |booking|
+    @user_bookings_confirmed = @booking_requests.select do |booking|
     booking.status = "confirmed"
     end
-    @user_bookings_rejected = @user_bookings_pending.select do |booking|
+    @user_bookings_rejected = @booking_requests.select do |booking|
     booking.status = "rejected"
     end
-    @user_bookings_cancelled = @user_bookings_pending.select do |booking|
+    @user_bookings_cancelled = @booking_requests.select do |booking|
     booking.status = "cancelled"
     end
   end
