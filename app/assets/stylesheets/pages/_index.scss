@@ -24,8 +24,9 @@
   margin-bottom: 10px;
   font-weight: 200;
 }
-.gym-link {
-  font-size: 16px;
+.gyms-link {
+  font-size: 14px;
+  width: fit-content;
 }
 .gyms-profile {
   border-bottom: 1px solid $primary-color;
@@ -34,4 +35,8 @@
 .booking-profile {
   border-bottom: 1px solid $primary-color;
   width: 40%;
+}
+.other-gym-profile {
+  border-bottom: 1px solid $primary-color;
+  width: 50%;
 }
