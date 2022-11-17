@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     end
 
     @booking_requests = current_user.bookings
-    @gyms = current_user.gyms
+
   end
 
   def create
