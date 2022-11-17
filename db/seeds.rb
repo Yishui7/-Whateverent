@@ -13,7 +13,7 @@ puts "Detroying users"
 User.destroy_all
 
 puts "Creating new users"
-4.times do
+10.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -23,7 +23,6 @@ puts "Creating new users"
   user.save
   puts "Created #{user.first_name}"
 end
-
 
 @owner = User.all
 
@@ -38,7 +37,7 @@ end
 
 puts "Creating new gyms"
 
-12.times do
+6.times do
   gym = Gym.new(
     # user_id = users.last.id
     # id_user: user_id,

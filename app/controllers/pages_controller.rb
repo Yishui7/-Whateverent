@@ -4,5 +4,6 @@ class PagesController < ApplicationController
 
   def show
     @user = current_user
+    @booking_requests = current_user.bookings
   end
 end
