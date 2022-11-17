@@ -11,5 +11,3 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   end
-
-  # create a get route to the pages profile

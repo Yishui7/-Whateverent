@@ -4,14 +4,15 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @gym = Gym.find(params[:gym_id])
     @booking = Booking.new(booking_params)
-    @booking.duration = @booking.end_time - @booking.start_time
-    @booking.total_price = @booking.gym.price_per_hour * @booking.duration
+    @booking.duration = (@booking.end_time - @booking.start_time) / 3600
+    @booking.total_price = @gym.price_per_hour * @booking.duration
     @booking.user = current_user
     @booking.status = "pending"
     @booking.gym = Gym.find(params[:gym_id])
     if @booking.save
-      redirect_to(@gym)
+      redirect_to booking_path(@gym)
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +27,11 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking_form).permit(:date, :start_time, :end_time)
+    params.require(:booking).permit(:date, :start_time, :end_time, :clients)
+  end
+
+  def user_params
+    params.require(:user).permit(:active)
   end
 
   def cancel_booking

@@ -52,7 +52,7 @@ body {
 }
 
 .signup-container-booking {
-  height: 75vh;
+  height: auto;
   margin: 0px auto;
   display: flex;
   justify-content: center;
@@ -70,7 +70,7 @@ body {
 
 .large-form-container-booking {
   background-color: $lightest-grey;
-  width: 35vw;
+  width: 25vw;
   box-shadow: 1px 1px 12px 2px $darkest-grey;
   border-radius: 8px;
   padding: 24px;
@@ -83,4 +83,15 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  color: $background-color;
+  font-weight: 500;
+}
+
+.book-now {
+  font-weight: 500;
 }
