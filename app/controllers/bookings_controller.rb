@@ -40,7 +40,6 @@ class BookingsController < ApplicationController
     @user_bookings_cancelled = @user_bookings_pending.select do |booking|
     booking.status = "cancelled"
     end
-
   end
 
 
@@ -53,7 +52,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.gym = Gym.find(params[:gym_id])
     if @booking.save
-      redirect_to profile_path
+      redirect_to bookings_path
     else
       render "gyms/show", status: :unprocessable_entity
     end
