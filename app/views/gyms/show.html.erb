@@ -55,7 +55,7 @@
               <%= f.input :start_time, minute_step: 15 %>
               <%= f.input :end_time, minute_step: 15 %>
               <%= f.input :clients, label: "Number of people attending", placeholder: "Maximum #{@gym.capacity}", input_html: { min: '0', max: @gym.capacity} %>
-              <%= f.error :duration, class:'invalid-feedback'%>
+              <%= f.error :duration, id:'invalid-feedback' %>
               <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3 book-now" %>
               <div class="price">
                 <p>Total price</p>
