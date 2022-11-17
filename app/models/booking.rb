@@ -7,7 +7,8 @@ class Booking < ApplicationRecord
   validates :start_time, presence: true, uniqueness: { scope: %I[date gym] }
   # validates :clients, numericality: { less_than:  }
   validate :clients_capacity
-
+  validates :start_time, comparison: { less_than: :end_time }
+  validates :duration, comparison: { greater_than_or_equal_to: 60, message: 'must be an hour or longer' }
   # validates_accosiated :clients, numericality: { less_than: :capacity}
 
   def clients_capacity
