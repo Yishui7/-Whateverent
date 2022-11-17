@@ -7,7 +7,7 @@
 <div class="container">
   <h1 class="profile-header">Welcome, <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
   <h2 class="gyms-profile"> Your Gyms </h2>
-  <div class="row card-container">
+  <div class="row card-container-booking">
     <% current_user.gyms.each do |gym|%>
       <div class="col-3 col-lg-3 card-layout">
           <%= link_to gym_path(gym) do %>
@@ -78,8 +78,8 @@
 
 <%# YOUR BOOKINGS OF OTHER GYMS %>
 <div class="container">
-  <h2> Your Bookings for Other Gyms </h2>
-  <div class="row card-container">
+  <h2 class="other-gym-profile"> Your Bookings for Other Gyms </h2>
+  <div class="row card-container-booking">
     <% @booking_requests.each do |booked|%>
       <div class="col-3 col-lg-3 card-layout">
           <%= link_to gym_path(booked.gym), target: :_blank do %>
