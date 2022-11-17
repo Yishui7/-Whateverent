@@ -119,3 +119,172 @@
   </div>
 </div>
 <% end %>
+<<<<<<< HEAD
+=======
+<%= render "components/page_nav" %>
+
+<p class="gyms-link"><%= link_to "<- Back to gyms", gyms_path, class: "nav-link"  %></p>
+
+<%# Users Gyms %>
+<div class="container">
+  <h1> <%= current_user.first_name %> <%= current_user.last_name %> </h1>
+  <h2> Your Gyms </h2>
+
+  <div class="row card-container">
+    <% if user_signed_in? %>
+      <% current_user.gyms.each do |gym|%>
+        <div class="col-4 col-lg-4 card-layout">
+          <%= link_to gym_path(gym) do %>
+            <div class="card-contents">
+              <% if gym.photos.attached? %>
+                <%= cl_image_tag gym.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="">                <% end %>
+                  <div class="card-description">
+                    <div class="card-details">
+                      <p><%= gym.name %></p>
+                      <p class="subtext"><%= gym.category %></p>
+                    </div>
+                    <div class="card-price">
+                      <p>$<%= gym.price_per_hour %>/hr</p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        <% end %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <div class="col-4 col-lg-4 card-layout">
+          <div class="card-contents-add">
+            <div class="card-description-add">
+              <div class="card-details-add">
+                <p><%= link_to "+ Add your gym", new_gym_path %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <h2>Your Bookings</h2>
+
+
+<%= render "components/page_nav" %>
+
+<p class="gyms-link"><%= link_to "<- Back to gyms", gyms_path, class: "nav-link"  %></p>
+
+<%# Users Gyms %>
+<div class="container">
+  <h1 class="profile-header">Welcome: <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
+  <h2> Your Gyms </h2>
+  <div class="row card-container">
+    <% current_user.gyms.each do |gym|%>
+      <div class="col-3 col-lg-3 card-layout">
+          <%= link_to gym_path(gym) do %>
+            <div class="card-contents">
+              <% if gym.photos.attached? %>
+                <%= cl_image_tag gym.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="">
+              <% end %>
+                <div class="card-description">
+                  <div class="card-details">
+                    <p><%= gym.name %></p>
+                    <p class="subtext"><%= gym.category %></p>
+                  </div>
+                  <div class="card-price">
+                    <p>$<%= gym.price_per_hour %>/hr</p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div class="col-3 col-lg-3 card-layout">
+          <div class="card-contents-add">
+            <div class="card-description-add">
+              <div class="card-details-add">
+                <p><%= link_to "+ Add your gym", new_gym_path %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+  <% else %>
+  </div>
+</div>
+<% end %>
+
+<%# CARDS FOR THOSE WHO BOOK YOUR GYM %>
+<div class="container">
+  <h2>Bookings for Your Gym</h2>
+  <div class="row card-container-booking">
+    <% @user_gym_booking_requests.each do |booking|%>
+      <div class="col-4 col-lg-4 card-layout-booking">
+          <%# <%= link_to gym_path(gym) do %>
+            <div class="card-contents-booking">
+              <h4>Trainer: <%= booking.user.first_name %></h4>
+              <h5>Date: <%= booking.date %></h4>
+                <div class="card-description-booking">
+                  <div class="card-details-booking">
+                    <p>Payment: $<%= booking.total_price %></p>
+                    <p>Clients: <%= booking.clients %></p>
+
+                  </div>
+                  <div class="card-price-booking">
+                    <p>Start: <%= booking.start_time.hour %><span>:<%= booking.start_time.min == 0 ? "00" : booking.start_time.min %></span></p>
+                    <p>End: <%= booking.end_time.hour %><span>:<%= booking.end_time.min == 0 ? "00" : booking.end_time.min %></span></p>
+                    <p>Duration: <%= booking.duration %></p>
+                  </div>
+                </div>
+              </div>
+            <%# <% end %>
+          </div>
+      <% end %>
+  </div>
+</div>
+
+<%# YOUR BOOKINGS OF OTHER GYMS %>
+<div class="container">
+  <h2> Your Bookings for Other Gyms </h2>
+  <div class="row card-container">
+    <% @booking_requests.each do |booked|%>
+      <div class="col-3 col-lg-3 card-layout">
+          <%= link_to gym_path(booked.gym), target: :_blank do %>
+            <div class="card-contents">
+              <% if booked.gym.photos.attached? %>
+                <%= cl_image_tag booked.gym.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1616940779493-6958fbd615fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9nYSUyMHN0dWRpb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="">
+              <% end %>
+                <div class="card-description">
+                  <div class="card-details">
+                    <p><%= booked.gym.name %></p>
+                    <p class="subtext"><%= booked.gym.category %></p>
+                  </div>
+                  <div class="card-price">
+                    <p>$<%= booked.gym.price_per_hour %>/hr</p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div class="col-3 col-lg-3 card-layout">
+          <div class="card-contents-add">
+            <div class="card-description-add">
+              <div class="card-details-add">
+                <p><%= link_to "+ Book a Session", gyms_path %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+<% else %>
+  </div>
+</div>
+<% end %>

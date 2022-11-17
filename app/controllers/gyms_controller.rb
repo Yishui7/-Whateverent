@@ -24,9 +24,17 @@ class GymsController < ApplicationController
   end
 
   def edit
+    @gym = Gym.find(params[:id])
   end
 
   def update
+    @gym = Gym.find(params[:id])
+    @gym.update(gym_params)
+    if @gym.save
+      redirect_to gym_path(@gym)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
