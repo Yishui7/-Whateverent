@@ -47,7 +47,7 @@
     <div class="booking-form w-40">
       <div class="signup-container-booking">
         <div class="large-form-container-booking">
-          <%= simple_form_for @booking do |f| %>
+          <%= simple_form_for [@gym, @booking] do |f| %>
             <div class="form-inputs">
               <%= f.input :date, as: :date, html5: true, autofocus: true %>
               <%= f.input :start_time, minute_step: 15 %>
