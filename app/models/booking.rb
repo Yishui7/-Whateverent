@@ -2,7 +2,9 @@ class Booking < ApplicationRecord
   STATUS = ['pending', 'confirmed', 'rejected', 'cancelled']
   belongs_to :user
   belongs_to :gym
-  validates :category, presence: true, inclusion: { in: STATUS }
+  validates :status, presence: true, inclusion: { in: STATUS }
+  validates :date, presence: true
+  validates :start_time, presence: true, uniqueness: { scope: :date }
 end
 
 # t.integer "date"

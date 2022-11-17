@@ -11,9 +11,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "pending"
     @booking.gym = Gym.find(params[:gym_id])
-    raise
-    if @booking.save!
-      redirect_to booking_path(params[:gym_id])
+    if @booking.save
+      redirect_to booking_path(@gym)
     else
       render :new, status: :unprocessable_entity
     end
