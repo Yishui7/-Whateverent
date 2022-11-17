@@ -2,6 +2,8 @@ class Booking < ApplicationRecord
   STATUS = ['pending', 'confirmed', 'rejected', 'cancelled']
   belongs_to :user
   belongs_to :gym
+  validates :date, presence: true
+  validates :clients, presence: true, comparison: { greater_than: 0 }
   validates :status, inclusion: { in: STATUS }
   validates :date, comparison: { greater_than_or_equal_to: Date.today }
   validates :start_time, presence: true, uniqueness: { scope: %I[date gym] }
@@ -9,14 +11,14 @@ class Booking < ApplicationRecord
   validate :start_time_date_scope
   validates :start_time, comparison: { less_than: :end_time }
   validates :duration, comparison: { greater_than_or_equal_to: 1, message: 'Duration must be one hour or longer' }
+
   def clients_capacity
-    errors.add(:clients, 'must be less than the capacity of the gym') if clients.nil? || clients > gym.capacity
+    errors.add(:clients, 'must be less than the capacity of the gym') if clients > gym.capacity
   end
 
   def start_time_date_scope
-    start_of = date.to_datetime + (start_time.hour).hours + (start_time.min).minutes
+    start_of = date.to_datetime + start_time.hour.hours + start_time.min.minutes
     errors.add(:start_time, 'must be in the future') if start_of < DateTime.now
-    # if start_time <
   end
 end
 
