@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [:edit, :update, :index]
+  get 'profile', to: 'pages#show', as: :profile
   # Defines the root path route ("/")
   # root "articles#index"
-end
+  end
