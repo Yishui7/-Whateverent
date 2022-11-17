@@ -1,27 +1,48 @@
 class BookingsController < ApplicationController
   def index
+    #array of gysm the user owns
     @users_gyms = current_user.gyms
+
+    #all booking requests for a users gym
     @user_gym_booking_requests = []
     @users_gyms.each do |gym|
       @user_gym_bookings.push(gym.bookings)
     end
     @user_gym_booking_requests.flatten!
-    @bookings_pending = @user_gym_booking_requests.select do |gym|
+
+    #booking requests for the current users gyms divided by status
+    @gym_bookings_pending = @user_gym_booking_requests.select do |booking|
                         gym.status = "pending"
     end
-    @bookings_confirmed = @user_gym_booking_requests.select do |gym|
-      gym.status = "confirmed"
+    @gym_bookings_confirmed = @user_gym_booking_requests.select do |booking|
+      booking.status = "confirmed"
     end
-    @bookings_rejected = @user_gym_booking_requests.select do |gym|
-      gym.status = "rejected"
+    @gym_bookings_rejected = @user_gym_booking_requests.select do |booking|
+      booking.status = "rejected"
     end
-    @bookings_cancelled = @user_gym_booking_requests.select do |gym|
-      gym.status = "cancelled"
+    @gym_bookings_cancelled = @user_gym_booking_requests.select do |booking|
+      booking.status = "cancelled"
     end
 
+    #all booking requests by the current user
     @booking_requests = current_user.bookings
-    @gyms = current_user.gyms
+
+    #booking requests by the current user divided by status
+    @user_bookings_pending = @user_bookings_pending.select do |booking|
+      gym.status = "pending"
+    end
+    @user_bookings_confirmed = @user_bookings_pending.select do |booking|
+    booking.status = "confirmed"
+    end
+    @user_bookings_rejected = @user_bookings_pending.select do |booking|
+    booking.status = "rejected"
+    end
+    @user_bookings_cancelled = @user_bookings_pending.select do |booking|
+    booking.status = "cancelled"
+    end
+
   end
+
 
   def create
     @gym = Gym.find(params[:gym_id])
@@ -39,10 +60,19 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Restaurant.find(params[:id])
   end
 
   def update
+    @booking = Restaurant.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+  end
 
+  def change_boooking_status
+    @booking = Booking.find(params[:id])
+    @booking.status = button_pick_up
+    @booking.save!
   end
 
   private
@@ -53,9 +83,5 @@ class BookingsController < ApplicationController
 
   def user_params
     params.require(:user).permit(:active)
-  end
-
-  def cancel_booking
-    @booking.status = "inactive"
   end
 end

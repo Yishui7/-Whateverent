@@ -1,0 +1,19 @@
+<div class="booking-form w-40">
+      <div class="signup-container-booking">
+        <div class="large-form-container-booking">
+          <%= simple_form_for [@gym, @booking] do |f| %>
+            <div class="form-inputs">
+              <%= f.input :date, as: :date, html5: true, autofocus: true %>
+              <%= f.input :start_time, minute_step: 15 %>
+              <%= f.input :end_time, minute_step: 15 %>
+              <%= f.input :clients, label: "Number of people attending", placeholder: "Maximum #{@gym.capacity}", input_html: { min: '0', max: @gym.capacity} %>
+              <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3 book-now" %>
+              <div class="price">
+                <p>Total price</p>
+                <%= @booking.total_price.nil? ? "$0" : "$#{@booking.total_price}" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
