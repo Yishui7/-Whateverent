@@ -14,7 +14,7 @@
     <h1><%= @gym.name %></h1>
     <div class="show-content-container d-flex">
       <p><%= @gym.address %></p>
-      <% if current_user.id == @gym.user_id %>
+      <% if user_signed_in? && current_user.id == @gym.user_id %>
         <p> <%= link_to "edit", edit_gym_path(params[:id]), class: "secondary-button" %></p>
       <% end %>
     </div>
