@@ -1,6 +1,26 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @users_gyms = current_user.gyms
+    @user_gym_booking_requests = []
+    @users_gyms.each do |gym|
+      @user_gym_bookings.push(gym.bookings)
+    end
+    @user_gym_booking_requests.flatten!
+    @bookings_pending = @user_gym_booking_requests.select do |gym|
+                        gym.status = "pending"
+    end
+    @bookings_confirmed = @user_gym_booking_requests.select do |gym|
+      gym.status = "confirmed"
+    end
+    @bookings_rejected = @user_gym_booking_requests.select do |gym|
+      gym.status = "rejected"
+    end
+    @bookings_cancelled = @user_gym_booking_requests.select do |gym|
+      gym.status = "cancelled"
+    end
+
+    @booking_requests = current_user.bookings
+    @gyms = current_user.gyms
   end
 
   def create
@@ -21,6 +41,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+
   end
 
   private
