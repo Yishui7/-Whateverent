@@ -14,6 +14,7 @@
           <%= f.input :description, :input_html => { :rows => 5 }%>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, 'Create gym listing', class:"primary-button w-100 mb-3" %>
+          <%= link_to "Cancel", :back, class:"secondary-button mb-3 w-100 text-center", style:"display: inline-block"%>
         </div>
       <% end %>
     </div>
