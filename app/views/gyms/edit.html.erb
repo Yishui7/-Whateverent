@@ -15,7 +15,7 @@
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, 'Update gym listing', class:"primary-button w-100 mb-3" %>
           <%= link_to "Cancel", :back, class:"secondary-button mb-3 w-100 text-center", style:"display: inline-block"%>
-        </div>
+          <%= link_to 'Delete', gym_path(@gym), class:"red-button mb-3 w-100 text-center", style:"display: inline-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% end %>
     </div>
   </div>

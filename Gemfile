@@ -89,3 +89,6 @@ gem "cloudinary"
 
 # GEOCODER
 gem "geocoder"
+
+# PG search
+gem "pg_search"

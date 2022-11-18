@@ -1,7 +1,11 @@
 class GymsController < ApplicationController
-
   def index
-    @gyms = Gym.all
+    query = params[:query]
+    if query.present?
+      @gyms = Gym.search_by_category(query)
+    else
+      @gyms = Gym.all
+    end
   end
 
   def show
@@ -42,6 +46,13 @@ class GymsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @gym = Gym.find(params[:id])
+    @gym.destroy
+    flash[:notice] = "Your gym listing was successfully deleted"
+    redirect_to bookings_path
   end
 
   private

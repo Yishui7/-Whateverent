@@ -25,3 +25,19 @@
     background-color: #8c2d94;
   }
 }
+
+.red-button {
+  padding: 8px 16px;
+  color: $lightest-grey;
+  background-color: #c31f25;
+  border-radius: 8px;
+
+  a {
+    color: $lightest-grey;
+  }
+
+  &:hover {
+    color: $lightest-grey;
+    background-color: #a71218;
+  }
+}

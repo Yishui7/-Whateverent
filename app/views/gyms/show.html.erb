@@ -7,7 +7,7 @@
   <%#= cl_image_tag photo.key %>
 <%# end %>
 
-<p class="gyms-link"><%= link_to "BACK TO GYMS", request.referrer, class: "nav-link"  %></p>
+<p class="gyms-link"><%= link_to "BACK TO GYMS", gyms_path, class: "nav-link"  %></p>
 
 <div class="container">
   <div class="show-header">
@@ -15,7 +15,9 @@
     <div class="show-content-container d-flex">
       <p><%= @gym.address %></p>
       <% if user_signed_in? && current_user.id == @gym.user_id %>
-        <p> <%= link_to "edit", edit_gym_path(params[:id]), class: "secondary-button" %></p>
+      <div>
+        <p> <%= link_to "edit/remove", edit_gym_path(params[:id]), class: "secondary-button" %></p>
+      </div>
       <% end %>
     </div>
   </div>
@@ -60,7 +62,13 @@
               <%= f.input :end_time, minute_step: 15 %>
               <%= f.input :clients, label: "Number of people attending", placeholder: "Maximum #{@gym.capacity}", input_html: { min: '0', max: @gym.capacity} %>
               <%= f.error :duration, id:'invalid-feedback' %>
+              <% if user_signed_in? %>
               <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3 book-now" %>
+              <% else %>
+              <div class="primary-button w-100 mb-3 book-now text-center">
+                <%= link_to 'Book now', new_user_registration_path %>
+              </div>
+              <% end %>
               <div class="price">
                 <p>Total price</p>
                 <%= @booking.total_price.nil? ? "$0" : "$#{@booking.total_price}" %>

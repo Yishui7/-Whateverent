@@ -2,8 +2,20 @@
 <%= render "components/page_nav" %>
 
 
-<div class="index-link">
-  <p> <%= link_to "+ Add your gym", new_gym_path %> </p>
+<div class="search-container">
+  <div class='search-bar'>
+    <%= form_with url: gyms_path, method: :get, class: "background-transparent" do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "background-transparent search search-text",
+    placeholder: "Find a gym type..."
+  %>
+  <%= submit_tag "Search", class: "search-button background-transparent search search-button" %>
+<% end %>
+  </div>
+  <div>
+    <p> <%= link_to "+ Add your gym", user_signed_in? ?  new_gym_path : new_user_registration_path %></p>
+  </div>
 </div>
 
 <div class="container">
@@ -34,7 +46,7 @@
           <div class="card-contents-add">
             <div class="card-description-add">
               <div class="card-details-add">
-                <p><%= link_to "+ Add your gym", new_gym_path, class: "add-box" %> </p>
+                <p><%= link_to "+ Add your gym", user_signed_in? ?  new_gym_path : new_user_registration_path, class: "add-box" %> </p>
               </div>
             </div>
           </div>
