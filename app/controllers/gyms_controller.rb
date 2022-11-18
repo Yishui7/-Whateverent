@@ -38,6 +38,13 @@ class GymsController < ApplicationController
     end
   end
 
+  def destroy
+    @gym = Gym.find(params[:id])
+    @gym.destroy
+    flash[:notice] = "Your gym listing was successfully deleted"
+    redirect_to bookings_path
+  end
+
   private
 
   def gym_params
