@@ -67,4 +67,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Enable to have photos saved and not deleted when editing
+  config.active_storage.replace_on_assign_to_many = false
 end
