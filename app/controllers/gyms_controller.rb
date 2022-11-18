@@ -7,6 +7,12 @@ class GymsController < ApplicationController
   def show
     @gym = Gym.find(params[:id])
     @booking = Booking.new
+    @markers = Gym.where(id: params[:id]).geocoded.map do |gym|
+      {
+        lat: gym.latitude,
+        lng: gym.longitude
+      }
+    end
   end
 
   def new

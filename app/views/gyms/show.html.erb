@@ -39,9 +39,16 @@
     <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %><span>|</span>Price per Hour: $<%= @gym.price_per_hour %></p>
   </div>
   <div class="show-content-container d-flex">
-    <div class="show-title w-50">
-      <h3>Gym owner - <%= @gym.user.first_name %>  </h3>
-      <p><%= @gym.description %></p>
+    <div class="show-title w-60">
+      <div class="col-8">
+        <h3>Gym owner - <%= @gym.user.first_name %></h3>
+        <p><%= @gym.description %></p>
+      </div>
+      <hr>
+      <h3 class="subtitle">Where you'll workout</h3>
+      <div class="container-map col-11" data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
     <div class="booking-form w-40">
       <div class="signup-container-booking">

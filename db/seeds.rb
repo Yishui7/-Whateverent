@@ -26,14 +26,14 @@ end
 
 @owner = User.all
 
-# @features_list = [
-#   "squat rack",
-#   "exercise bike",
-#   "free weights",
-#   "treadmill",
-#   "yoga mats",
-#   "kettlebells"
-# ]
+@address = [
+  "2331 E Washington St",
+  "2467 Heather Glen Ave",
+  "12 Schilling St",
+  "1100 N Frontage Rd",
+  "1214 E Wellington St",
+  "69 West St"
+]
 
 puts "Creating new gyms"
 
@@ -43,7 +43,7 @@ puts "Creating new gyms"
     # id_user: user_id,
     user: @owner.sample,
     price_per_hour: Faker::Number.between(from: 1, to: 10),
-    address: Faker::Address.street_address,
+    address: @address.sample,
     description: Faker::Lorem.sentence(word_count: 40),
     category: Gym::CATEGORIES.sample,
     name: Faker::Cannabis.brand,

@@ -86,3 +86,6 @@ gem "dotenv-rails", groups: [:development, :test]
 
 # CLOUDINARY
 gem "cloudinary"
+
+# GEOCODER
+gem "geocoder"
