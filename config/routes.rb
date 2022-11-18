@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:edit, :update, :index]
   get 'profile', to: 'pages#show', as: :profile
-  patch '/booking_status/:id', to: 'bookings#change_booking_status', as: :booking_status
+  patch '/bookings/:id/accept', to: 'bookings#accept', as: :accept_booking
+  patch '/bookings/:id/reject', to: 'bookings#reject', as: :reject_booking
+
   # Defines the root path route ("/")
   # root "articles#index"
   end
