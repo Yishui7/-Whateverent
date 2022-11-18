@@ -7,7 +7,7 @@
   <%#= cl_image_tag photo.key %>
 <%# end %>
 
-<p class="gyms-link"><%= link_to "BACK TO GYMS", request.referrer, class: "nav-link"  %></p>
+<p class="gyms-link"><%= link_to "BACK TO GYMS", gyms_path, class: "nav-link"  %></p>
 
 <div class="container">
   <div class="show-header">
@@ -15,7 +15,9 @@
     <div class="show-content-container d-flex">
       <p><%= @gym.address %></p>
       <% if user_signed_in? && current_user.id == @gym.user_id %>
-        <p> <%= link_to "edit", edit_gym_path(params[:id]), class: "secondary-button" %></p>
+      <div>
+        <p> <%= link_to "edit/remove", edit_gym_path(params[:id]), class: "secondary-button" %></p>
+      </div>
       <% end %>
     </div>
   </div>
