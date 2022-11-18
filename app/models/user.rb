@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :gyms, dependent: :destroy # Owners
   # has_many :booked_gyms, through: :bookings, ... some additional code to be written here if this line is needed.
 

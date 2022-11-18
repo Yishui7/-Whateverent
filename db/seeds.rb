@@ -10,7 +10,9 @@ require 'faker'
 require 'open-uri'
 
 puts "Detroying users"
+Gym.destroy_all
 User.destroy_all
+
 
 puts "Creating new users"
 10.times do
