@@ -73,8 +73,8 @@
                 </div>
 
                 <div class="d-flex space-around w-100" data-controller="booking">
-                  <button class='primary-button'>Confirm ✅</button>
-                  <button class='primary-button'>Reject ❌</button>
+                  <%= link_to "Confirm ✅", accept_booking_path(booking), data:{turbo_method: :patch} %>
+                  <%= link_to "Reject ❌", reject_booking_path(booking), data:{turbo_method: :patch} %>
                 </div>
               <%# <% end %>
             </div>
