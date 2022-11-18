@@ -53,7 +53,13 @@
               <%= f.input :end_time, minute_step: 15 %>
               <%= f.input :clients, label: "Number of people attending", placeholder: "Maximum #{@gym.capacity}", input_html: { min: '0', max: @gym.capacity} %>
               <%= f.error :duration, id:'invalid-feedback' %>
+              <% if user_signed_in? %>
               <%= f.button :submit, 'Book now', class:"primary-button w-100 mb-3 book-now" %>
+              <% else %>
+              <div class="primary-button w-100 mb-3 book-now text-center">
+                <%= link_to 'Book now', new_user_registration_path %>
+              </div>
+              <% end %>
               <div class="price">
                 <p>Total price</p>
                 <%= @booking.total_price.nil? ? "$0" : "$#{@booking.total_price}" %>

@@ -11,12 +11,12 @@ class BookingsController < ApplicationController
     @user_gym_booking_requests.flatten!
 
     #booking requests for the current users gyms divided by status
-    # @gym_bookings_pending = @user_gym_booking_requests.select do |booking|
-    #   booking.status = "pending"
-    # end
-    # @gym_bookings_confirmed = @user_gym_booking_requests.select do |booking|
-    #   booking.status = "confirmed"
-    # end
+   @gym_bookings_pending = @user_gym_booking_requests.select do |booking|
+     booking.status = "pending"
+   end
+   @gym_bookings_confirmed = @user_gym_booking_requests.select do |booking|
+     booking.status = "confirmed"
+   end
     # @gym_bookings_rejected = @user_gym_booking_requests.select do |booking|
     #   booking.status = "rejected"
     # end
@@ -27,13 +27,13 @@ class BookingsController < ApplicationController
     #all booking requests by the current user
     @booking_requests = current_user.bookings
 
-    # #booking requests by the current user divided by status
-    # @user_bookings_pending = @booking_requests.select do |booking|
-    #   booking.status = "pending"
-    # end
-    # @user_bookings_confirmed = @booking_requests.select do |booking|
-    # booking.status = "confirmed"
-    # end
+     #booking requests by the current user divided by status
+     @user_bookings_pending = @booking_requests.select do |booking|
+       booking.status = "pending"
+     end
+     @user_bookings_confirmed = @booking_requests.select do |booking|
+     booking.status = "confirmed"
+     end
     # @user_bookings_rejected = @booking_requests.select do |booking|
     # booking.status = "rejected"
     # end
@@ -68,10 +68,18 @@ class BookingsController < ApplicationController
     redirect_to booking_path(@booking)
   end
 
-  def change_boooking_status
+  def accept
     @booking = Booking.find(params[:id])
-    @booking.status = button_pick_up
+    @booking.status = "confirmed"
     @booking.save!
+    redirect_to bookings_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save!
+    redirect_to bookings_path
   end
 
   private
