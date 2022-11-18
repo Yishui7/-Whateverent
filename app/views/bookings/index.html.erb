@@ -67,7 +67,7 @@
                     <div class="card-price-booking">
                       <p>Start: <%= booking.start_time.hour %><span>:<%= booking.start_time.min == 0 ? "00" : booking.start_time.min %></span></p>
                       <p>End: <%= booking.end_time.hour %><span>:<%= booking.end_time.min == 0 ? "00" : booking.end_time.min %></span></p>
-                      <p>Duration: <%= booking.duration %></p>
+                      <p>Duration: <%=pluralize booking.duration, "hr" %></p>
                     </div>
                   </div>
                 </div>
@@ -100,11 +100,12 @@
                   <div class="card-details-booking">
                     <p id="text-white"><%= booked.gym.name %></p>
                     <p class="subtext"><%= booked.gym.category %></p>
+                    <p>Total: $<%= booked.total_price %></p>
                   </div>
                   <div class="card-price-booking">
                     <p>Start: <%= booked.start_time.hour %><span>:</span><%= booked.start_time.min == 0 ? "00" : booked.start_time.min %></p>
                     <p>End: <%= booked.end_time.hour %><span>:</span><%= booked.end_time.min == 0 ? "00" : booked.end_time.min %></p>
-                    <p><%= booked.duration %>hrs</p>
+                    <p><%=pluralize booked.duration, "hr" %></p>
                   </div>
                 </div>
               </div>

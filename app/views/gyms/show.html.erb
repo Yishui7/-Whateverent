@@ -36,11 +36,11 @@
     </div>
   </div>
   <div class="show-category">
-    <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %></p>
+    <p><%= @gym.category %><span>|</span>Capacity: <%= @gym.capacity %><span>|</span>Price per Hour: $<%= @gym.price_per_hour %></p>
   </div>
   <div class="show-content-container d-flex">
-    <div class="show-title w-60">
-      <h3>Gym owner - <%= @gym.user.first_name %></h3>
+    <div class="show-title w-50">
+      <h3>Gym owner - <%= @gym.user.first_name %>  </h3>
       <p><%= @gym.description %></p>
     </div>
     <div class="booking-form w-40">
