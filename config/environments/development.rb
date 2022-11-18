@@ -69,5 +69,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # Enable to have photos saved and not deleted when editing
-  config.active_storage.replace_on_assign_to_many = false
+  config.active_storage.replace_on_assign_to_many = true
 end

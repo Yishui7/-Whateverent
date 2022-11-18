@@ -83,7 +83,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
   # Enable to have photos saved and not deleted when editing
-  config.active_storage.replace_on_assign_to_many = false
+  config.active_storage.replace_on_assign_to_many = true
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
