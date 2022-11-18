@@ -16,4 +16,11 @@ class Gym < ApplicationRecord
   validates :capacity, presence: true
   validates :description, presence: true
   validates :photos, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_category,
+                  against: [:category],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

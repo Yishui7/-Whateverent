@@ -86,3 +86,6 @@ gem "dotenv-rails", groups: [:development, :test]
 
 # CLOUDINARY
 gem "cloudinary"
+
+# PG search
+gem "pg_search"

@@ -1,7 +1,11 @@
 class GymsController < ApplicationController
-
   def index
-    @gyms = Gym.all
+    query = params[:query]
+    if query.present?
+      @gyms = Gym.search_by_category(query)
+    else
+      @gyms = Gym.all
+    end
   end
 
   def show
