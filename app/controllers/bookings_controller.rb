@@ -42,7 +42,6 @@ class BookingsController < ApplicationController
     # end
   end
 
-
   def create
     @gym = Gym.find(params[:gym_id])
     @booking = Booking.new(booking_params)
