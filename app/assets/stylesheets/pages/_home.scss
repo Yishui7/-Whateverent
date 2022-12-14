@@ -87,4 +87,11 @@ body {
   .description-home {
     width: 75%;
   }
+  .col-3 {
+    width: 100%;
+  }
+  .card-container-booking {
+    display: flex;
+    flex-direction: column;
+  }
 }

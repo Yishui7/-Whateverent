@@ -11,7 +11,7 @@
 
 <div class="container">
   <div class="show-header">
-    <h1><%= @gym.name %></h1>
+    <h1><%= @gym.name %>'s Gym</h1>
     <div class="show-content-container d-flex">
       <p><%= @gym.address %></p>
       <% if user_signed_in? && current_user.id == @gym.user_id %>
@@ -43,7 +43,7 @@
   <div class="show-content-container d-flex">
     <div class="show-title w-60">
       <div class="col-8">
-        <h3>Gym owner - <%= @gym.user.first_name %></h3>
+        <h3>Gym Owner - <%= @gym.user.first_name %></h3>
         <p><%= @gym.description %></p>
       </div>
       <hr>
@@ -52,6 +52,7 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
+    <p class="book-title">Book with us!</p>
     <div class="booking-form w-40">
       <div class="signup-container-booking">
         <div class="large-form-container-booking">
