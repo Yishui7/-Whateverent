@@ -40,3 +40,47 @@
   border-bottom: 1px solid $primary-color;
   width: 50%;
 }
+
+// Media Queries IPHONE ****FOR SHOW PAGE AS WELL********
+@media only screen and  (min-width: 200px) and (max-width: 700px) {
+  .card-layout {
+    width: auto;
+  }
+  #big-img {
+    height: 300px;
+  }
+  .secondary-img {
+    height: 143px;
+  }
+  .show-content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .show-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .col-8 {
+      width: 100%;
+    }
+  }
+  .container-map {
+    margin-bottom: 20px;
+  }
+  .booking-form {
+    width: 100%;
+  }
+  .large-form-container-booking {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .book-title {
+    display: block;
+    font-size: 23px;
+  }
+  hr {
+    display: none;
+  }
+
+}
