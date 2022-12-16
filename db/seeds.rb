@@ -48,16 +48,22 @@ puts "Creating new gyms"
     address: @address.sample,
     description: Faker::Lorem.sentence(word_count: 40),
     category: Gym::CATEGORIES.sample,
-    name: Faker::Cannabis.brand,
+    name: Faker::App.name,
     capacity: Faker::Number.between(from: 1, to: 5)
   )
 
   puts "Uploading photos for #{gym.name}"
   5.times do
-    file = URI.open("https://source.unsplash.com/random/?gym")
+    file = URI.open("https://source.unsplash.com/random/?home-gym")
     gym.photos.attach(io: file, filename: "gym.jpg", content_type: "image/jpg")
   end
 
   gym.save
   puts "Created #{gym.name}"
 end
+
+
+
+# For Seeds:
+# 1. Make a description array that will be super long and annoying but then we will have
+#     good descriptions instead of lorem ipsum shit

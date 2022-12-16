@@ -42,3 +42,21 @@ input:focus-visable {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
+
+// Media Queries IPHONE
+@media only screen and  (min-width: 200px) and (max-width: 700px) {
+  .search-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar {
+    position: relative;
+    left: 5px;
+    padding-bottom: 10px;
+  }
+}

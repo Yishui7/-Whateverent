@@ -76,6 +76,10 @@ body {
   padding: 24px;
   opacity: 0.95;
 }
+.book-title {
+  display: none;
+
+}
 
 .form-input, .form-label, .form-check-label {
   color: $background-color;
