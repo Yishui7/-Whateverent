@@ -49,7 +49,7 @@ puts "Creating new gyms"
     description: Faker::Lorem.sentence(word_count: 40),
     category: Gym::CATEGORIES.sample,
     name: Faker::Games::LeagueOfLegends.champion,
-    capacity: Faker::Number.between(from: 1, to: 5)
+    capacity: Faker::Number.between(from: 2, to: 5)
   )
 
   puts "Uploading photos for #{gym.name}"
