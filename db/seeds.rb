@@ -55,7 +55,8 @@ puts "Creating new gyms"
   puts "Uploading photos for #{gym.name}"
   5.times do
     file = URI.open("https://source.unsplash.com/random/?gym")
-    gym.photos.attach(io: file, filename: "{SecureRandom.hex(10)}.jpg", content_type: "image/jpg")
+    gym.photos.attach(io: file, filename: "gym.jpg", content_type: "image/jpg")
+    sleep(2)
   end
 
   gym.save
