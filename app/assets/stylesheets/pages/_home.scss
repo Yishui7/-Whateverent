@@ -73,3 +73,25 @@ body {
     transition: .4s;
   }
 }
+
+
+// Media Queries IPHONE
+@media only screen and  (min-width: 200px) and (max-width: 700px) {
+  .container-main {
+    width: auto;
+    padding: 55px 15px 10px 20px;
+  }
+  .container-header {
+    width: 75%;
+  }
+  .description-home {
+    width: 75%;
+  }
+  .col-3 {
+    width: 100%;
+  }
+  .card-container-booking {
+    display: flex;
+    flex-direction: column;
+  }
+}

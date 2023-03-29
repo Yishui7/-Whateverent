@@ -54,7 +54,7 @@ puts "Creating new gyms"
 
   puts "Uploading photos for #{gym.name}"
   5.times do
-    file = URI.open("https://source.unsplash.com/random/?gym")
+    file = URI.open("https://source.unsplash.com/random/?home-gym")
     gym.photos.attach(io: file, filename: "gym.jpg", content_type: "image/jpg")
     sleep(2)
   end
@@ -62,3 +62,9 @@ puts "Creating new gyms"
   gym.save
   puts "Created #{gym.name}"
 end
+
+
+
+# For Seeds:
+# 1. Make a description array that will be super long and annoying but then we will have
+#     good descriptions instead of lorem ipsum shit
