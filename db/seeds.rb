@@ -48,7 +48,7 @@ puts "Creating new gyms"
     address: @address.sample,
     description: Faker::Lorem.sentence(word_count: 40),
     category: Gym::CATEGORIES.sample,
-    name: Faker::App.name,
+    name: Faker::Games::LeagueOfLegends.champion,
     capacity: Faker::Number.between(from: 1, to: 5)
   )
 
@@ -56,6 +56,7 @@ puts "Creating new gyms"
   5.times do
     file = URI.open("https://source.unsplash.com/random/?home-gym")
     gym.photos.attach(io: file, filename: "gym.jpg", content_type: "image/jpg")
+    sleep(2)
   end
 
   gym.save
